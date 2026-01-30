@@ -16,6 +16,7 @@ async function fetchData() {
     }
 }
 
+//läs JSON-data till funktioner
 async function readData() {
     const data = await fetchData();
 
@@ -26,6 +27,7 @@ async function readData() {
     });
 }
 
+//skriver ut tabell till DOM
 function writeTable(tableData) {
     const tableEl = document.querySelector("#tableData");
     tableEl.innerHTML = "";
@@ -52,8 +54,10 @@ function writeTable(tableData) {
     });
 }
 
+//fliter för input sök
 function searchFilter(tableArr) {
     let input = document.querySelector("#searchInput").value.toLowerCase();
+    //filter för ny array från sök-input
     let tableArrFilterd = tableArr.filter((table) =>
         table.code.toLowerCase().includes(input) ||
         table.coursename.toLowerCase().includes(input)
