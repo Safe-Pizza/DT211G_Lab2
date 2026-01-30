@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/css/styles.css">
+  <title>DT211G - Laboration 2</title>
+</head>
+
+<body>
+  <div class="container">
+    <main>
+      <h1>Webbutveckling - Ramschema</h1>
+      <label for="searchInput">Sök:</label>
+      <input type="text" placeholder="Sök efter kurskod eller kursnamn" id="searchInput">
+      <table id="tableSchedule">
+        <thead>
+          <tr>
+            <th>Kurskord</th>
+            <th>Kursnamn</th>
+            <th>Progression</th>
+          </tr>
+        </thead>
+        <tbody id="tableData">
+
+        </tbody>
+      </table>
+    </main>
+  </div>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
