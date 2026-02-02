@@ -1,8 +1,14 @@
 "use strict";
 
+let allTableData = [];
+
 //ladda DOM
-document.addEventListener("DOMContentLoaded", () => {
-    readData();
+document.addEventListener("DOMContentLoaded", async () => {
+    fetchData();
+
+    document.querySelector("#searchInput").addEventListener("input", () => {
+        searchFilter(allTableData);
+    });
 });
 
 //hämta JSON-data
@@ -10,29 +16,19 @@ async function fetchData() {
     try {
         const response = await fetch("https://webbutveckling.miun.se/files/ramschema.json");
         const data = await response.json();
-        return data;
+        allTableData = data;
+        writeTable(data);
     } catch (error) {
         console.error(`Felmeddelande ${error}`);
     }
 }
 
-//läs JSON-data till funktioner
-async function readData() {
-    const data = await fetchData();
-
-    writeTable(data);
-
-    document.querySelector("#searchInput").addEventListener("input", () => {
-        searchFilter(data);
-    });
-}
-
 //skriver ut tabell till DOM
-function writeTable(tableData) {
+function writeTable(tableDatas) {
     const tableEl = document.querySelector("#tableData");
     tableEl.innerHTML = "";
 
-    tableData.forEach(d => {
+    tableDatas.forEach(d => {
         //skapa tr + td element
         const trEl = document.createElement("tr");
         const tdCodeEl = document.createElement("td");
