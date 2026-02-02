@@ -3,7 +3,9 @@ Detta är en laboration i _Webbutveckingsprogrammet_ på Mittuniveristetet.
 
 ## Länk till webbplats
 [Min webbplats](https://dt211glab2.netlify.app/)
+
 Versionhanteringen blev lite stökig i denna laboration då .git hamnade i fel mapp. Försökte fixa det men fick inte till att flytta befintlig versionshantering till sub-folder där jag ville ha den vilket gjorde att jag fick skapa ett helt nytt repo och kopiera över befintliga filer till det.
+
 Ursprunglig versionshantering fram till kopieringen finns här: [https://github.com/Safe-Pizza/Lab2_ECMAScript.git](https://github.com/Safe-Pizza/Lab2_ECMAScript.git)
 
 ## Syfte
