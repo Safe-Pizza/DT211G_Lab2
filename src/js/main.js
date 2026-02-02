@@ -1,11 +1,12 @@
 "use strict";
-
+//lagra array från API globalt
 let allTableData = [];
 
 //ladda DOM
 document.addEventListener("DOMContentLoaded", async () => {
     fetchData();
 
+    //händelselyssnare för sökfunktion
     document.querySelector("#searchInput").addEventListener("input", () => {
         searchFilter(allTableData);
     });
@@ -16,7 +17,10 @@ async function fetchData() {
     try {
         const response = await fetch("https://webbutveckling.miun.se/files/ramschema.json");
         const data = await response.json();
+
+        //lagra i global variabel
         allTableData = data;
+
         writeTable(data);
     } catch (error) {
         console.error(`Felmeddelande ${error}`);
