@@ -10,6 +10,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector("#searchInput").addEventListener("input", () => {
         searchFilter(allTableData);
     });
+
+    //händelselyssnare för sortering
+    document.querySelector("#courseCode").addEventListener("click", () => {
+        const sortByCourseCode = [...allTableData].sort((a, b) => a.code.localeCompare(b.code));
+        writeTable(sortByCourseCode);
+    })
+
+    document.querySelector("#courseName").addEventListener("click", () => {
+        const sortByCourseName = [...allTableData].sort((a, b) => a.coursename.localeCompare(b.coursename));
+        writeTable(sortByCourseName);
+    })
+
+    document.querySelector("#courseProg").addEventListener("click", () => {
+        const sortByCourseProg = [...allTableData].sort((a, b) => a.progression.localeCompare(b.progression));
+        writeTable(sortByCourseProg);
+    })
 });
 
 //hämta JSON-data
@@ -40,7 +56,7 @@ function writeTable(tableDatas) {
         const tdProgEl = document.createElement("td");
 
         //lägg till text
-        tdCodeEl.innerHTML = d.code;
+        tdCodeEl.innerHTML = d.code.toUpperCase();
         tdNameEl.innerHTML = d.coursename;
         tdProgEl.innerHTML = d.progression;
 
